@@ -1,0 +1,209 @@
+body{
+  font-family: "Lucida Grande" , "Arial", "sans-serif";
+}
+// All mixin
+$mobile: "(min-width: 320px) and (max-width: 767px)"; // for laptop machine
+$mobile: "(min-device-width: 320px) and (max-device-width: 767px)"; // for actual mobile device
+
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$tablet: "(min-device-width: 768px) and (max-device-width: 1023px)"; // for actual mobile device
+
+
+$desktop: "(min-width: 1024px)";
+$largedesktop: "(min-width: 1281px)";
+
+$tablet_above: "(min-width: 768px)";
+
+
+@mixin incline-class{
+  display: inline-block;
+}
+@mixin vertical-class($clsName){
+  vertical-align: $clsName;
+}
+@mixin font_size($fs){
+  font-size: $fs;
+}
+@mixin f_color($clr){
+  color: $clr;
+}
+
+@mixin responsive_image{
+  width: 100%;
+  height: auto;
+}
+img.map-hemburger {
+  @include responsive_image;
+  max-width: 80px;
+  cursor: pointer;
+}
+img.pj-logo{
+  @include responsive_image;
+}
+img.map-logo {
+  @include responsive_image;
+  max-width: 75px;
+}
+  .main_container{
+    @media #{$largedesktop} {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+  }
+
+@media #{$desktop} {
+  .init-logo-etter{
+    @include font_size(2rem);
+  }
+  .map_nameplate{
+    @include font_size(1.4rem);
+  }
+}
+@media #{$tablet} {
+  .init-logo-etter{
+    @include font_size(1.8rem);
+  }
+  .map_nameplate{
+    @include font_size(1.2rem);
+  }
+}
+@media #{$mobile} {
+  img.map-logo {
+    max-width: 75px;
+  }
+  .init-logo-etter{
+    @include font_size(1.6rem);
+  }
+  .map_nameplate{
+    @include font_size(1.1rem);
+  }
+}
+
+// Common style
+.rights_letters{
+  text-align: center;
+  margin-top: 20px;
+}
+.init-logo-etter{
+  @include f_color(#05a905);
+}
+.map_branding {
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  @include f_color(#05a905);
+  font-weight: 700;
+}
+.map_nameplate{
+  letter-spacing: 2px;
+  @include vertical-class(top);
+}
+.main_container {
+  margin-top: 15px;
+}
+.logo-symbol {
+  .res_div_img {
+    text-align: center;
+  }
+}
+.desktop-inline{
+  @include incline-class;
+  @include vertical-class(bottom);
+}
+.logo-symbol {
+  //border: 1px solid blue;
+    width: 15%;
+}
+.map-branding-container {
+  //border: 1px solid red;
+    width: 75%;
+    padding-top: 2rem;
+}
+.hamburger_menu_container {
+  //border: 1px solid green;
+  width: 8%;
+}
+.ham-menu-img {
+  text-align: right;
+}
+
+// Collapsable div style
+
+@media #{$tablet_above} {
+  .collapsable_div {
+    margin-top: 5px;
+    display: none;
+  }
+  #wrapper-menu {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    background-color: #a3dea3;
+    border-radius: 5px;
+    border: 2px solid #353535;
+    div.col-menu-row{
+      display: table-cell;
+
+      @include f_color(#353535);
+      text-align: center;
+      padding: 15px 0px;
+
+      font-size: 1.4rem;
+
+      @media #{$tablet} {
+        font-size: 1.2rem;
+      }
+      @media #{$mobile} {
+        font-size: 1rem;
+        display: block;
+      }
+      cursor: pointer;
+    }
+    div.col-menu-row:hover{
+      @include f_color(#fff);
+    }
+  }
+}
+
+// design for each block
+
+.each_block {
+  @media #{$mobile} {
+    width: 45%;
+  }
+  @media #{$tablet} {
+    width: 45%;
+  }
+  display: inline-block;
+  margin: 10px;
+  width: 30%;
+  //padding: 10px;
+  //border: 1px solid blue;
+}
+.menu-blocks {
+  padding: 50px 100px;
+  @media #{$mobile} {
+    padding: 50px 50px;
+  }
+  @media #{$tablet} {
+    padding: 50px 50px;
+  }
+  text-align: center;
+  background: rgba(123, 123, 123, 0.18);
+  margin: 50px 0px;
+}
+
+.pj-label {
+  position: relative;
+  /* left: 0; */
+  top: -50px;
+  z-index: 10;
+  border: 1px solid white;
+  color: white;
+  width: 80%;
+  padding: 10px 0px;
+  border-radius: 4px;
+  background-color: #4c4b4b;
+}
+.res_div_img.pj1 {
+  text-align: -webkit-center;
+}
